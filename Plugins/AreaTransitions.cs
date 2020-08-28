@@ -57,7 +57,7 @@ namespace Random_Features
         private void AreaTranitions()
         {
             if (!Settings.AreaTransition) return;
-            if (GameController.Game.IngameState.IngameUi.AtlasPanel.IsVisible || GameController.Game.IngameState.IngameUi.TreePanel.IsVisible)
+            if (GameController.Game.IngameState.IngameUi.Atlas.IsVisible || GameController.Game.IngameState.IngameUi.TreePanel.IsVisible)
                 return;
             if (GameController.Area.CurrentArea.IsHideout || GameController.Area.CurrentArea.IsTown && Settings.AreaTransitionHideInTownOrHideout)
                 return;

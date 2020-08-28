@@ -32,7 +32,7 @@ namespace Random_Features
             var windows = GameController.Game.IngameState.IngameUi;
             if (windows.TreePanel.IsVisible)
                 return;
-            if (windows.AtlasPanel.IsVisible)
+            if (windows.Atlas.IsVisible)
                 return;
             if (windows.OpenLeftPanel.IsVisible)
                 return;

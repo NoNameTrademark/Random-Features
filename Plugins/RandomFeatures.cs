@@ -813,7 +813,7 @@ namespace Random_Features
 
         private void UnsortedPlugin()
         {
-            if (!GameController.Game.IngameState.IngameUi.AtlasPanel.IsVisible && !GameController.Game.IngameState.IngameUi.TreePanel.IsVisible)
+            if (!GameController.Game.IngameState.IngameUi.Atlas.IsVisible && !GameController.Game.IngameState.IngameUi.TreePanel.IsVisible)
             {
                 RenderMapImages();
                 RenderVaultPiles();
