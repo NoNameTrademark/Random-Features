@@ -34,6 +34,10 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExileCore">
+      <HintPath>..\..\..\..\PoeHelper\ExileCore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ImGui.NET">
       <HintPath>..\..\..\deps\ImGui.NET.dll</HintPath>
       <Private>False</Private>
@@ -112,13 +116,6 @@
     <Content Include="textures\Random FeaturesAtlas.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Core.csproj">
-      <Project>{5539d732-34a7-44ab-9e28-116c3429b12a}</Project>
-      <Name>Core</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
