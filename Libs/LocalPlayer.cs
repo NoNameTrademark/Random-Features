@@ -16,6 +16,6 @@ namespace Random_Features.Libs
 
         public static object Entity { get; internal set; }
 
-        public static bool HasBuff(string buffName) => LocalPlayerEntity.GetComponent<Life>().HasBuff(buffName);
+        public static bool HasBuff(string buffName) => LocalPlayerEntity.GetComponent<ExileCore.PoEMemory.Components.Buffs>().HasBuff(buffName);
     }
 }
