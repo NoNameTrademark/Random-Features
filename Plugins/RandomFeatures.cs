@@ -1145,47 +1145,54 @@ namespace Random_Features
 
         private void DrawToLargeMiniMap(Entity entity)
         {
-            var icon = GetMapIcon(entity);
-            if (icon == null)
+            try
             {
-                return;
+                var icon = GetMapIcon(entity);
+                if (icon == null) return;
+
+                var render = entity.GetComponent<Render>();
+                if (render == null) return;
+
+                var iconZ = render.Z;
+                var point = LargeMapInformation.ScreenCenter
+                            + MapIcon.DeltaInWorldToMinimapDelta(entity.GetComponent<Positioned>().GridPos - LargeMapInformation.PlayerPos,
+                                LargeMapInformation.Diag, LargeMapInformation.Scale,
+                                (iconZ - LargeMapInformation.PlayerPosZ) /
+                                (9f / LargeMapInformation.MapWindow.LargeMapZoom));
+
+                var size = icon.Size * 2; // icon.SizeOfLargeIcon.GetValueOrDefault(icon.Size * 2);
+                Graphics.DrawImage(icon.Texture, new RectangleF(point.X - size / 2f, point.Y - size / 2f, size, size), icon.Color);
             }
-
-            var iconZ = entity.GetComponent<Render>().Z;
-            var point = LargeMapInformation.ScreenCenter
-                        + MapIcon.DeltaInWorldToMinimapDelta(entity.GetComponent<Positioned>().GridPos - LargeMapInformation.PlayerPos,
-                            LargeMapInformation.Diag, LargeMapInformation.Scale,
-                            (iconZ - LargeMapInformation.PlayerPosZ) /
-                            (9f / LargeMapInformation.MapWindow.LargeMapZoom));
-
-            var size = icon.Size * 2; // icon.SizeOfLargeIcon.GetValueOrDefault(icon.Size * 2);
-            Graphics.DrawImage(icon.Texture, new RectangleF(point.X - size / 2f, point.Y - size / 2f, size, size), icon.Color);
+            catch (NullReferenceException) { }
         }
 
         private void DrawToSmallMiniMap(Entity entity)
         {
-            var icon = GetMapIcon(entity);
-            if (icon == null)
+            try
             {
-                return;
-            }
+                var icon = GetMapIcon(entity);
+                if (icon == null) return;
 
-            var smallMinimap = GameController.Game.IngameState.IngameUi.Map.SmallMiniMap;
-            var playerPos = GameController.Player.GetComponent<Positioned>().GridPos;
-            var posZ = GameController.Player.GetComponent<Render>().Z;
-            const float scale = 240f;
-            var mapRect = smallMinimap.GetClientRect();
-            var mapCenter = new Vector2(mapRect.X + mapRect.Width / 2, mapRect.Y + mapRect.Height / 2).Translate(0, 0);
-            var diag = Math.Sqrt(mapRect.Width * mapRect.Width + mapRect.Height * mapRect.Height) / 2.0;
-            var iconZ = entity.GetComponent<Render>().Z;
-            var point = mapCenter + MapIcon.DeltaInWorldToMinimapDelta(entity.GetComponent<Positioned>().GridPos - playerPos, diag, scale, (iconZ - posZ) / 20);
-            var size = icon.Size;
-            var rect = new RectangleF(point.X - size / 2f, point.Y - size / 2f, size, size);
-            mapRect.Contains(ref rect, out var isContain);
-            if (isContain)
-            {
-                Graphics.DrawImage(icon.Texture, rect, icon.Color);
+                var smallMinimap = GameController.Game.IngameState.IngameUi.Map.SmallMiniMap;
+                var playerPos = GameController.Player.GetComponent<Positioned>().GridPos;
+                var posZ = GameController.Player.GetComponent<Render>().Z;
+                const float scale = 240f;
+                var mapRect = smallMinimap.GetClientRect();
+                var mapCenter = new Vector2(mapRect.X + mapRect.Width / 2, mapRect.Y + mapRect.Height / 2).Translate(0, 0);
+                var diag = Math.Sqrt(mapRect.Width * mapRect.Width + mapRect.Height * mapRect.Height) / 2.0;
+
+
+                var render = entity.GetComponent<Render>();
+                if (render == null) return;
+
+                var iconZ = render.Z;
+                var point = mapCenter + MapIcon.DeltaInWorldToMinimapDelta(entity.GetComponent<Positioned>().GridPos - playerPos, diag, scale, (iconZ - posZ) / 20);
+                var size = icon.Size;
+                var rect = new RectangleF(point.X - size / 2f, point.Y - size / 2f, size, size);
+                mapRect.Contains(ref rect, out var isContain);
+                if (isContain) Graphics.DrawImage(icon.Texture, rect, icon.Color);
             }
+            catch (NullReferenceException) { }
         }
 
         private void RenderAtziriMirrorClone()

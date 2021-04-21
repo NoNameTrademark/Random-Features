@@ -100,22 +100,22 @@ namespace Random_Features
         {
             if (Settings.RoyaleThings)
             {
-                if (e.HasComponent<Chest>() && !e.GetComponent<Chest>().IsOpened)
+                if (e.HasComponent<Chest>())
                 {
-                    if (Settings.RoyaleHoardChests && e.Path.Contains("Metadata/Chests/RoyaleChestMidKitUnique"))
+                    if (Settings.RoyaleHoardChests && e.Path.Contains("Metadata/Chests/RoyaleChestMidKitUnique") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconStrongbox, Settings.RoyaleHoardColor, Settings.RoyaleHoardSize);
 
-                    if (Settings.RoyaleTroveChests && e.Path.Contains("Metadata/Chests/RoyaleChestCurrency"))
+                    if (Settings.RoyaleTroveChests && e.Path.Contains("Metadata/Chests/RoyaleChestCurrency") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconStrongbox, Settings.RoyaleTroveColor, Settings.RoyaleTroveSize);
 
-                    if (Settings.RoyaleCacheChests && e.Path.Contains("Metadata/Chests/RoyaleChestMidKit"))
+                    if (Settings.RoyaleCacheChests && e.Path.Contains("Metadata/Chests/RoyaleChestMidKit") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconStrongbox, Settings.RoyaleCacheColor, Settings.RoyaleCacheSize);
 
-                    if (Settings.RoyaleSuppliesChests && e.Path.Contains("Metadata/Chests/RoyaleChestStarterKit"))
+                    if (Settings.RoyaleSuppliesChests && e.Path.Contains("Metadata/Chests/RoyaleChestStarterKit") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconStrongbox, Settings.RoyaleSuppliesColor, Settings.RoyaleSuppliesSize);
 
                     if (Settings.RoyaleExplosiveBarrelsChests &&
-                        e.Path.Contains("Metadata/Chests/AtlasBarrelExplosive1"))
+                        e.Path.Contains("Metadata/Chests/AtlasBarrelExplosive1") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconChest, Settings.RoyaleExplosiveBarrelsColor, Settings.RoyaleExplosiveBarrelsSize);
                 }
             }
@@ -146,69 +146,69 @@ namespace Random_Features
                 if (e.Path.Contains("LabyrinthSawblade"))
                     return new MapIcon(_iconRoomba, Settings.SawsOnMapColor, Settings.SawsOnMapSize);
 
-            if (Settings.LabyrinthChest && e.HasComponent<Chest>() && !e.GetComponent<Chest>().IsOpened)
+            if (Settings.LabyrinthChest && e.HasComponent<Chest>())
             {
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthTreasureKey"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthTreasureKey") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.TreasureKeyChestColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthTrinketChest"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthTrinketChest") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.TrinketChestColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthSpecificUnique"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthSpecificUnique") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.SpecificUniqueChestColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthReward0Currency"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthReward0Currency") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardCurrencyColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthReward0CurrencyQuality"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthReward0CurrencyQuality") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardCurrencyQualityColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerCurrency"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerCurrency") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardDangerCurrencyColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerCurrencyQuality"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerCurrencyQuality") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardDangerCurrencyQualityColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerUnique"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerUnique") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardDangerUniqueColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerDivination"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerDivination") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardDangerDivinationColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerSkillGems"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerSkillGems") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardDangerLowGemColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerCorruptedVaal"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerCorruptedVaal") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardDangerCorVaalColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerJewelry"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerJewelry") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardDangerJewelleryColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerGeneric"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardDangerGeneric") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardDangerGenericColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverCurrency"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverCurrency") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardSilverCurrencyColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverCurrencyQuality"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverCurrencyQuality") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardSilverCurrencyQualityColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverJewelryUnique"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverJewelryUnique") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardSilverJewelryUniqueColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverDivination"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverDivination") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardSilverDivinationColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverUnique1"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverUnique1") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardSilverUniqueOneColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverUnique3"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverUnique3") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardSilverUniqueTwoColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverUnique2"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverUnique2") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardSilverUniqueThreeColor, Settings.LabyrinthChestSize);
 
-                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverSkillGems"))
+                if (e.Path.Contains("Metadata/Chests/Labyrinth/LabyrinthRewardSilverSkillGems") && !e.GetComponent<Chest>().IsOpened)
                     return new MapIcon(_iconStrongbox, Settings.RewardSilverSkillGemColor, Settings.LabyrinthChestSize);
             }
 
@@ -261,69 +261,72 @@ namespace Random_Features
 
             if (Settings.DelveChests)
             {
-                if (e.HasComponent<Chest>() && !e.GetComponent<Chest>().IsOpened)
+                if (e.HasComponent<Chest>())
                 {
                     if (e.Path.StartsWith("Metadata/Chests/DelveChests/DelveChestGenericLeague") || e.Path.Contains("Unique") && e.Path.StartsWith("Metadata/Chests/DelveChests"))
-                        return new MapIcon(_iconLeagueChest, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
+                        if (!e.GetComponent<Chest>().IsOpened)
+                            return new MapIcon(_iconLeagueChest, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveMiningSuppliesDynamite"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveMiningSuppliesDynamite") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconBombs, Settings.DelveMiningSuppliesDynamiteChestColor, Settings.DelveMiningSuppliesDynamiteChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveMiningSuppliesFlares"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveMiningSuppliesFlares") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconFlare, Settings.DelveMiningSuppliesFlaresChestColor, Settings.DelveMiningSuppliesFlaresChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("PathCurrency"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("PathCurrency") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconCurrency, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("DynamiteCurrency"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("DynamiteCurrency") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconCurrency, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("AdditionalSockets"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("AdditionalSockets") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconAdditionalSockets, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("AtziriFragment"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("AtziriFragment") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconFragment, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("PaleCourtFragment"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("PaleCourtFragment") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconPaleCourtComplete, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Essence"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Essence") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconEssence, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("SilverCoin"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("SilverCoin") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconSilverCoin, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("WisdomScroll"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("WisdomScroll") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconWisDomCurrency, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Divination"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Divination") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconDivinationCard, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveChestCurrency"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveChestCurrency") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconCurrency, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
                     if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("DelveAzuriteVein") && !e.Path.Contains("Encounter"))
-                        return new MapIcon(_iconStrongbox, Settings.DelveAzuriteVeinChestColor, Settings.DelveAzuriteVeinChestSize);
+                        if (!e.GetComponent<Chest>().IsOpened)
+                            return new MapIcon(_iconStrongbox, Settings.DelveAzuriteVeinChestColor, Settings.DelveAzuriteVeinChestSize);
 
                     if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Resonator3") && e.Path.Contains("Resonator4") && e.Path.Contains("Resonator5"))
-                        return new MapIcon(_iconResonatorT1, Settings.DelveResonatorChestColor, Settings.DelveResonatorChestSize * 0.7f);
+                        if (!e.GetComponent<Chest>().IsOpened)
+                            return new MapIcon(_iconResonatorT1, Settings.DelveResonatorChestColor, Settings.DelveResonatorChestSize * 0.7f);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Resonator2"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Resonator2") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconResonatorT2, Settings.DelveResonatorChestColor, Settings.DelveResonatorChestSize * 0.7f);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Resonator1"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Resonator1") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconResonatorT3, Settings.DelveResonatorChestColor, Settings.DelveResonatorChestSize * 0.7f);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveChestArmourMovementSpeed"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveChestArmourMovementSpeed") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconSpeedArmour, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveChestSpecialUniqueMana"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests/DelveChestSpecialUniqueMana") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconUniqueManaFlask, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize * 1.3f);
 
-                    if (e.Path.Contains("RandomEnchant") && e.Path.StartsWith("Metadata/Chests/DelveChests"))
+                    if (e.Path.Contains("RandomEnchant") && e.Path.StartsWith("Metadata/Chests/DelveChests") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconEnchant, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("FossilChest") && e.Path.StartsWith("Metadata/Chests/DelveChests"))
+                    if (e.Path.Contains("FossilChest") && e.Path.StartsWith("Metadata/Chests/DelveChests") && !e.GetComponent<Chest>().IsOpened)
                     {
                         if (FossilList.T1.Any(@string => e.Path.ToLower().Contains(@string.ToLower())))
                             return new MapIcon(_iconAbberantFossilT1, Settings.DelveFossilChestColor, Settings.DelveFossilChestSize);
@@ -337,27 +340,27 @@ namespace Random_Features
                         return new MapIcon(_iconAbberantFossil, Settings.DelveFossilChestColor, Settings.DelveFossilChestSize);
                     }
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Resonator"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Resonator") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconResonatorT1, Settings.DelveResonatorChestColor, Settings.DelveResonatorChestSize * 0.7f);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Map"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Map") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconMap, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Corrupted"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Corrupted") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconCorrupted, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("6Linked"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("6Linked") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconSixLink, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("GemHighLevel"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("GemHighLevel") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconHighLevelGem, Settings.DelveCurrencyChestColor, Settings.DelveCurrencyChestSize);
 
-                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Trinkets"))
+                    if (e.Path.Contains("Metadata/Chests/DelveChests") && e.Path.Contains("Trinkets") && !e.GetComponent<Chest>().IsOpened)
                         return new MapIcon(_iconChestJewelers, Color.Yellow, Settings.DelveCurrencyChestSize);
 
                     // catch missing delve chests
                     if (Settings.DelvePathwayChest)
-                        if (e.Path.Contains("Metadata/Chests/DelveChests") && !e.Path.Contains("Encounter"))
+                        if (e.Path.Contains("Metadata/Chests/DelveChests") && !e.Path.Contains("Encounter") && !e.GetComponent<Chest>().IsOpened)
                             return new MapIcon(_iconStrongbox, Settings.DelvePathwayChestColor, Settings.DelvePathwayChestSize);
                 }
 
@@ -397,11 +400,11 @@ namespace Random_Features
                 }
 
                 if (Settings.IncursionBreachChest)
-                    if (e.HasComponent<Chest>() && !e.GetComponent<Chest>().IsOpened)
+                    if (e.HasComponent<Chest>())
                     {
-                        if (e.Path.Contains("Metadata/Chests/IncursionChests/IncursionChestBreach"))
+                        if (e.Path.Contains("Metadata/Chests/IncursionChests/IncursionChestBreach") && !e.GetComponent<Chest>().IsOpened)
                             return new MapIcon(_iconStrongbox, Settings.IncursionBreachChestOnMapColor, Settings.IncursionBreachChestOnMapSize);
-                        if (e.Path.Contains("Metadata/Chests/IncursionChestArmour"))
+                        if (e.Path.Contains("Metadata/Chests/IncursionChestArmour") && !e.GetComponent<Chest>().IsOpened)
                             return new MapIcon(_iconStrongbox, Settings.IncursionChestArmorChestOnMapColor, Settings.IncursionChestArmorChestOnMapSize);
                     }
             }
