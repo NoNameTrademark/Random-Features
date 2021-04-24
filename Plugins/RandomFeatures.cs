@@ -803,7 +803,7 @@ namespace Random_Features
         {
             try
             {
-                return GameController.Game.IngameState.UIRoot.Children[1]?.Children[19]?.Children[8];
+                return GameController.Game.IngameState.UIRoot.Children[1]?.Children[25]?.Children[10];
             }
             catch (Exception)
             {
