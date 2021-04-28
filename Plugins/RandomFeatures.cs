@@ -756,10 +756,14 @@ namespace Random_Features
                 {
                     //TODO: test TryGetStat() - probably incorrect.
                     //IlliumIv: i dont undestand this logic - cannot fix. Probably later.
-                    var FireRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyFireDamageResistancePct, validEntity);
-                    var ColdRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyColdDamageResistancePct, validEntity);
-                    var LightRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyLightningDamageResistancePct, validEntity);
-                    var ChaosRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyChaosDamageResistancePct, validEntity);
+                    //var FireRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyFireDamageResistancePct, validEntity);
+                    //var ColdRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyColdDamageResistancePct, validEntity);
+                    //var LightRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyLightningDamageResistancePct, validEntity);
+                    //var ChaosRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyChaosDamageResistancePct, validEntity);
+                    var FireRes = TryGetStat(GameStat.FireDamageResistancePct, validEntity);
+                    var ColdRes = TryGetStat(GameStat.ColdDamageResistancePct, validEntity);
+                    var LightRes = TryGetStat(GameStat.LightningDamageResistancePct, validEntity);
+                    var ChaosRes = TryGetStat(GameStat.ChaosDamageResistancePct, validEntity);
                     Element MonsterBox = MonsterTopName();
                     if (MonsterBox.Children[0].Width > 0)
                     {
@@ -803,7 +807,7 @@ namespace Random_Features
         {
             try
             {
-                return GameController.Game.IngameState.UIRoot.Children[1]?.Children[19]?.Children[8];
+                return GameController.Game.IngameState.UIRoot.Children[1]?.Children[25]?.Children[10];
             }
             catch (Exception)
             {
