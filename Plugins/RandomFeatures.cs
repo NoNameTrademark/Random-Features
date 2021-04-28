@@ -1163,7 +1163,7 @@ namespace Random_Features
                 var size = icon.Size * 2; // icon.SizeOfLargeIcon.GetValueOrDefault(icon.Size * 2);
                 Graphics.DrawImage(icon.Texture, new RectangleF(point.X - size / 2f, point.Y - size / 2f, size, size), icon.Color);
             }
-            catch (NullReferenceException) { }
+            catch (NullReferenceException e) { if (Settings._Debug) throw e; }
         }
 
         private void DrawToSmallMiniMap(Entity entity)
