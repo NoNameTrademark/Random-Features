@@ -747,54 +747,55 @@ namespace Random_Features
 
         private void MonsterResistnaceOnHover()
         {
-            // TODO: check this fix
-            //return;
             if (!Settings.MonsterHoverStats) return;
             foreach (Entity validEntity in GameController.EntityListWrapper.ValidEntitiesByType[EntityType.Monster])
             {
-                if (validEntity.IsAlive && validEntity.HasComponent<Targetable>() && validEntity.GetComponent<Targetable>().isTargeted)
+                if (validEntity == null) continue;
+                if (validEntity.IsDead) continue;
+                if (!validEntity.HasComponent<Targetable>()) continue;
+                var targetable = validEntity.GetComponent<Targetable>();
+                if (targetable == null || !targetable.isTargetable) continue;
+                
+                var FireRes = TryGetStat(GameStat.FireDamageResistancePct, validEntity);
+                var ColdRes = TryGetStat(GameStat.ColdDamageResistancePct, validEntity);
+                var LightRes = TryGetStat(GameStat.LightningDamageResistancePct, validEntity);
+                var ChaosRes = TryGetStat(GameStat.ChaosDamageResistancePct, validEntity);
+                Element MonsterBox = MonsterTopName();
+                if (MonsterBox != null && MonsterBox.Children[0].Width > 0)
                 {
-                    //TODO: test TryGetStat() - probably incorrect.
-                    //IlliumIv: i dont undestand this logic - cannot fix. Probably later.
-                    //var FireRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyFireDamageResistancePct, validEntity);
-                    //var ColdRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyColdDamageResistancePct, validEntity);
-                    //var LightRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyLightningDamageResistancePct, validEntity);
-                    //var ChaosRes = TryGetStat(GameStat.LocalDisplayNearbyEnemyChaosDamageResistancePct, validEntity);
-                    var FireRes = TryGetStat(GameStat.FireDamageResistancePct, validEntity);
-                    var ColdRes = TryGetStat(GameStat.ColdDamageResistancePct, validEntity);
-                    var LightRes = TryGetStat(GameStat.LightningDamageResistancePct, validEntity);
-                    var ChaosRes = TryGetStat(GameStat.ChaosDamageResistancePct, validEntity);
-                    Element MonsterBox = MonsterTopName();
-                    if (MonsterBox.Children[0].Width > 0)
-                    {
-                        RectangleF pos = MonsterBox.Children[0].GetClientRect();
-                        int TextSize = (int)pos.Height;
-                        float nextTextSpace = 0;
-                        string NextText = $"{FireRes}";
-                        string @string = NextText;
-                        Graphics.DrawText(NextText, new Vector2(pos.X + 10 + pos.Width + nextTextSpace, pos.Y), new Color(255, 85, 85, 255), TextSize);
-                        nextTextSpace += Graphics.MeasureText(NextText, TextSize).X;
-                        NextText = $" {ColdRes}";
-                        @string += NextText;
-                        Graphics.DrawText(NextText, new Vector2(pos.X + 10 + pos.Width + nextTextSpace, pos.Y), new Color(77, 77, 255, 255), TextSize);
-                        nextTextSpace += Graphics.MeasureText(NextText, TextSize).X;
-                        NextText = $" {LightRes}";
-                        @string += NextText;
-                        Graphics.DrawText(NextText, new Vector2(pos.X + 10 + pos.Width + nextTextSpace, pos.Y), new Color(253, 245, 75, 255), TextSize);
-                        nextTextSpace += Graphics.MeasureText(NextText, TextSize).X;
-                        NextText = $" {ChaosRes}";
-                        @string += NextText;
-                        Graphics.DrawText(NextText, new Vector2(pos.X + 10 + pos.Width + nextTextSpace, pos.Y), new Color(255, 91, 179, 255), TextSize);
-                        Graphics.DrawBox(new RectangleF(pos.X + 10 + pos.Width, pos.Y, Graphics.MeasureText(@string, TextSize).X, pos.Height),
-                            Color.Black);
-                    }
+                    RectangleF pos = MonsterBox.Children[0].GetClientRect();
+                    int TextSize = (int) pos.Height;
+                    float nextTextSpace = 0;
+                    string NextText = $"{FireRes}";
+                    string @string = NextText;
+                    Graphics.DrawText(NextText, new Vector2(pos.X + 10 + pos.Width + nextTextSpace, pos.Y),
+                        new Color(255, 85, 85, 255), TextSize);
+                    nextTextSpace += Graphics.MeasureText(NextText, TextSize).X;
+                    NextText = $" {ColdRes}";
+                    @string += NextText;
+                    Graphics.DrawText(NextText, new Vector2(pos.X + 10 + pos.Width + nextTextSpace, pos.Y),
+                        new Color(77, 77, 255, 255), TextSize);
+                    nextTextSpace += Graphics.MeasureText(NextText, TextSize).X;
+                    NextText = $" {LightRes}";
+                    @string += NextText;
+                    Graphics.DrawText(NextText, new Vector2(pos.X + 10 + pos.Width + nextTextSpace, pos.Y),
+                        new Color(253, 245, 75, 255), TextSize);
+                    nextTextSpace += Graphics.MeasureText(NextText, TextSize).X;
+                    NextText = $" {ChaosRes}";
+                    @string += NextText;
+                    Graphics.DrawText(NextText, new Vector2(pos.X + 10 + pos.Width + nextTextSpace, pos.Y),
+                        new Color(255, 91, 179, 255), TextSize);
+                    Graphics.DrawBox(
+                        new RectangleF(pos.X + 10 + pos.Width, pos.Y, Graphics.MeasureText(@string, TextSize).X,
+                            pos.Height),
+                        Color.Black);
                 }
             }
         }
 
         public int TryGetStat(GameStat playerStat, Entity entity)
         {
-            return !entity.GetComponent<Stats>().StatDictionary.TryGetValue(playerStat, out var statValue) ? 0 : statValue;
+            return (entity == null || !entity.HasComponent<Stats>() || !entity.GetComponent<Stats>().StatDictionary.TryGetValue(playerStat, out var statValue)) ? 0 : statValue;
         }
 
 
@@ -807,7 +808,7 @@ namespace Random_Features
         {
             try
             {
-                return GameController.Game.IngameState.UIRoot.Children[1]?.Children[25]?.Children[10];
+                return GameController.Game.IngameState.UIRoot.Children[1]?.Children[22]?.Children[10];
             }
             catch (Exception)
             {

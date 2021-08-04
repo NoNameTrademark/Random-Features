@@ -98,6 +98,9 @@ namespace Random_Features
 
         private MapIcon GetMapIcon(Entity e)
         {
+            if (e == null)
+                return null;
+            
             if (Settings.RoyaleThings)
             {
                 if (e.HasComponent<Chest>())
